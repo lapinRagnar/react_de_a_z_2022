@@ -7,25 +7,28 @@
     <title>ReactJs</title>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
-    <h1>Ajouter react à un site web</h1>
+    <h1>Essayer JSX en un clin d’œil - react - babel</h1>
     <hr>
 
 
     <div id="root"></div>
 
-    <script>
+    <script type="text/babel">
 
         const root = document.getElementById('root');
-        // let h1 = React.createElement('h1', null, "salut les potes")
-        // un autre moyen de faire en enlevant le 3e argument
-        // et ajouter des props qu'on veut
-        let h1 = React.createElement('h1', {children: "coucou bonjour ca va", monprops: "ajouter mon propre props"})
-        console.log(h1);
 
-        ReactDOM.render(h1, root)
+        const template = (
+            <main>
+                <section>
+                    <h2>Salut les baigna be!</h2>
+                </section>
+            </main>
+        )
+
+        ReactDOM.render(template, root)
 
     </script>
 
