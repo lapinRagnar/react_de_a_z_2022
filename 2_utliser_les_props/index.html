@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJs</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <h1>Creer mon premier composant</h1>
+    <hr>
+
+    <h2>exploiter les props</h2>
+
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const root = document.getElementById('root');
+
+
+        const MonComposant = function(props){
+            console.log(props);
+
+            return (
+                <section>
+                    <h2>{props.titre} </h2>
+                </section>
+            )
+        }
+
+        // pour utiliser des variables locals, on va utiliser les props
+        function Template(){
+            const titre = "ity misy titre manja be eeeeh"
+
+            return (
+                <main>
+                    <MonComposant data={titre} ></MonComposant>    
+                </main>
+            )
+        }
+
+        ReactDOM.render(<Template />, root)
+
+    </script>
+
+</body>
+</html>
