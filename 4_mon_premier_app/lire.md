@@ -10,4 +10,4 @@ npm start
 
 - créer un dossier et fichier : src/css/app.css
 
-
+- installer tailwindcss (framework css comme bootstrap) : https://tailwindcss.com/
