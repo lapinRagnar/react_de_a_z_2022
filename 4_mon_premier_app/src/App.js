@@ -13,11 +13,23 @@ class App extends React.Component{
 
     constructor(props) {
         super(props)
-        this.state = {titre: 'ceci est ma variable o!'}
+        this.state = {
+            titre: '1ere evenement avec React js pour interagir avec le dom',
+            show: false
+        }
     }
 
     render() {
-        return <h1 className="heading" >Bonjour les amis - {this.state.titre} </h1>
+        return <div>
+            <h1>{this.state.titre} </h1>
+            <p> cliquer pour afficher l'image</p>
+            {
+                this.state.show ?
+                <img className="mon-profile" src="mon-profile.jpg" alt="" />
+                : null
+            }
+            <button className="element-btn" onClick={()=>{this.setState({show: !this.state.show})}}>Cliquez</button>
+        </div>
     }
 }
 

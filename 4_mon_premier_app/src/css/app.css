@@ -4,3 +4,13 @@
     text-align: center; 
     text-decoration: underline red;
 }
+
+.element-btn{
+    background: purple;
+    border-radius: 2px;
+    padding: 2px 3px;
+}
+
+.mon-profile{
+    width: 200px;
+}

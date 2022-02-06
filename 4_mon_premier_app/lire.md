@@ -11,3 +11,11 @@ npm start
 - créer un dossier et fichier : src/css/app.css
 
 - installer tailwindcss (framework css comme bootstrap) : https://tailwindcss.com/
+
+- apprendre le composant fonctionnel
+
+- apprendre le composant avec les class
+
+- créer le 1er evenemenet pour interagir avec le dom:
+    * liste des evenements : https://fr.reactjs.org/docs/events.html
+    
