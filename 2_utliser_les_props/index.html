@@ -23,19 +23,19 @@
         const root = document.getElementById('root');
 
 
-        const MonComposant = function(props){
-            console.log(props);
+        const MonComposant = function({data}){
+            console.log('salut', data);
 
             return (
                 <section>
-                    <h2>{props.titre} </h2>
+                    <h2>{data} </h2>
                 </section>
             )
         }
 
         // pour utiliser des variables locals, on va utiliser les props
         function Template(){
-            const titre = "ity misy titre manja be eeeeh"
+            const titre = "passer les variables entre parent et enfant"
 
             return (
                 <main>
