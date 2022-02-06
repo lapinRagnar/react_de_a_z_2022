@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Picture from "./components/Picture";
 import "./css/app.css"
 
@@ -10,12 +10,16 @@ function App(){
     const [titre, setTitre] = useState("Bonjour les amis!")
     const [show, setShow] = useState(false)
 
+    // equivalent de componentDidMount en hook
+    useEffect(() => console.log('le composant a été monté - useEffect!'), []) 
+
     function handleClick () {
         setShow(!show)
     }
 
     return (
         <div>
+            {console.log('le jsx a été monté!')}
             <h1>{titre} </h1>
             <p> cliquer pour afficher l'image</p>
             { show ? <Picture/> : null }

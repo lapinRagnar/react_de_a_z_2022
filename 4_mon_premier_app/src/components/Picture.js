@@ -1,29 +1,59 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 
-export default class Picture extends Component {
+// composant fonctionnel
 
-    constructor(props) {
-        super(props)
-        this.state = {timer: null}
-    }
+export default function Picture() {
 
-    componentDidMount () {
-        this.setState({
-            timer: setInterval(() => {
-                console.log("le timer est appelé!");
-            }, 2000)
-        })
-    }
+//   const [myTimer, setMyTimer] = useState(null)
+
   
-    componentWillUnmount(){
-        console.log("le composant Picture a été supprimé");
-        clearInterval(this.state.timer)      
-    }
+  useEffect(()=>{
 
-    render() {
+      const myTimer = setInterval(() => {
+          console.log('timer appellé!');
+      }, 2000)
 
-        return <div>
-            <img className="mon-profile" src="mon-profile.jpg" alt="" />
-        </div>;
-    }
+      return () => clearInterval(myTimer)
+  }, [])
+
+
+
+  return (
+      <div>
+          <img className="mon-profile" src="mon-profile.jpg" alt="" />
+      </div>
+  )
 }
+
+
+
+
+// composant en class
+
+// export default class Picture extends Component {
+
+//     constructor(props) {
+//         super(props)
+//         this.state = {timer: null}
+//     }
+
+//     componentDidMount () {
+//         this.setState({
+//             timer: setInterval(() => {
+//                 console.log("le timer est appelé!");
+//             }, 2000)
+//         })
+//     }
+  
+//     componentWillUnmount(){
+//         console.log("le composant Picture a été supprimé");
+//         clearInterval(this.state.timer)      
+//     }
+
+//     render() {
+
+//         return <div>
+//             <img className="mon-profile" src="mon-profile.jpg" alt="" />
+//         </div>;
+//     }
+// }
