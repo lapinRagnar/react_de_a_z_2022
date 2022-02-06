@@ -8,4 +8,6 @@ npm start
     -App.js
 - installer l'outils react developper tools (extension chrome ou autres en fonction du navigateur)
 
+- créer un dossier et fichier : src/css/app.css
+
 
