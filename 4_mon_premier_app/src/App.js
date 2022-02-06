@@ -11,8 +11,13 @@ import "./css/app.css"
 
 class App extends React.Component{
 
+    constructor(props) {
+        super(props)
+        this.state = {titre: 'ceci est ma variable o!'}
+    }
+
     render() {
-        return <h1 className="heading" >Bonjour les amis </h1>
+        return <h1 className="heading" >Bonjour les amis - {this.state.titre} </h1>
     }
 }
 
