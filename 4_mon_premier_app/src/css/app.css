@@ -34,4 +34,6 @@
     right: calc(50% - 100px);
     top: calc(50% - 100px);
 
+    visibility: hidden;
+
 }
