@@ -11,6 +11,17 @@ export default function Picture() {
         'mon-profile.jpg'
     ]
 
+    // créer un composant dans un composant
+    function ImagesComponent () {
+        return (
+            images.map((name)=>{
+                return(
+                    <img className="mon-profile" src={name} alt="" />
+                )
+              })
+        )
+    }
+
     
 
 //   const [myTimer, setMyTimer] = useState(null)
@@ -29,13 +40,9 @@ export default function Picture() {
 
   return (
       <div>
-          {
-              images.map((name)=>{
-                return(
-                    <img className="mon-profile" src={name} alt="" />
-                )
-              })
-          }
+
+            <ImagesComponent />
+
       </div>
   )
 }
