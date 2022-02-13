@@ -17,9 +17,6 @@
 
 .relative{
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 
@@ -36,4 +33,10 @@
 
     visibility: hidden;
 
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

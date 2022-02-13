@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useState, useRef } from 'react';
 import Picture from './Picture'
 
 export default function Pictures() {
@@ -11,10 +11,15 @@ export default function Pictures() {
         'mon-profile.jpg'
     ])
 
-
+    const [image, setImage] = useState(null)
 
     function ImagesComponent () {
-        return (images.map((name, index)=> <Picture imageName={name} index={index} handleRemove={handleRemoveImage} />))
+        return (images.map((name, index)=> <Picture
+         imageName={name} 
+         index={index}
+         key={index} 
+         handleRemove={handleRemoveImage} 
+         />))
     }
 
 
@@ -22,12 +27,30 @@ export default function Pictures() {
         setImages(images.filter((image, i) => i !== index))
     }
 
+    function handleImageName(event) {
+        setImage(event.target.value)
+    }
 
+    function addImageName() {
+        let newImages = [image, ...images]
+    }
+
+    const inputToFocus = useRef(null)
+
+    useEffect(() => {
+        inputToFocus.current.focus()
+    })
 
     return (
-        <div>
 
+        <div className='container'>
+            <div className="flex">
                 <ImagesComponent />
+            </div>
+            <div className="container-input">
+                <input ref={inputToFocus} type="text" name="" id=""  onChange={handleImageName}/>
+                <button type="submit" onClick={addImageName}>Ajouter nom images</button>
+            </div>
 
         </div>
     )
