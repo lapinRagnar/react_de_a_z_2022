@@ -14,3 +14,24 @@
 .mon-profile{
     width: 200px;
 }
+
+.relative{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.supprimer-btn{
+
+    background: rgb(202, 61, 61);
+    width: 25px;
+    height: 25px;
+    padding-bottom: 1px;
+    border-radius: 50%;
+    position: absolute;
+    right: calc(50% - 100px);
+    top: calc(50% - 100px);
+
+}

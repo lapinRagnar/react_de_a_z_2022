@@ -4,19 +4,33 @@ import React, { Component, useEffect, useState } from 'react';
 
 export default function Picture() {
 
+    
     const images = [
         "nord1.jpg",
         "nord2.jpg",
         "nord3.jpg",
         'mon-profile.jpg'
     ]
+    
+    const [image, setImages] = useState(null)
 
     // créer un composant dans un composant
     function ImagesComponent () {
         return (
-            images.map((name)=>{
+            images.map((name, index)=>{
                 return(
-                    <img className="mon-profile" src={name} alt="" />
+
+                    <div className="relative" key={index} >
+
+                        <button className="supprimer-btn"
+                            onClick={ () => setImages(images.filter((image, i) => i !== index)) }
+                        >
+                            x
+                        </button>
+                        <img className="mon-profile" src={name} alt="" />
+
+                    </div>
+
                 )
               })
         )
