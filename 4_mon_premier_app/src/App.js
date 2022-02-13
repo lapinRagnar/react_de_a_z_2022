@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import Picture from "./components/Picture";
 import "./css/app.css"
 
@@ -9,9 +9,13 @@ function App(){
     // pour declarer les varibles d'état on va utiliser les hooks
     const [titre, setTitre] = useState("Bonjour les amis!")
     const [show, setShow] = useState(false)
+    const isShowInitialize = useRef(false)
 
     // equivalent de componentDidMount en hook
     useEffect(() => console.log('le composant a été monté - useEffect!'), []) 
+
+    // equivalent de componentDidUpdate
+    useEffect(() => console.log('show est mise à jour!'), [show])
 
     function handleClick () {
         setShow(!show)

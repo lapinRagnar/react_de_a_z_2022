@@ -6,7 +6,7 @@ export default function Picture() {
 
 //   const [myTimer, setMyTimer] = useState(null)
 
-  
+  // quand le composant est monté
   useEffect(()=>{
 
       const myTimer = setInterval(() => {
