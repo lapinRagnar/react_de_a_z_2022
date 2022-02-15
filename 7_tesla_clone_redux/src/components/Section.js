@@ -1,21 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Section(props) {
+function Section({title, description, leftBtnText, rightBtnText, backgroundImg}) {
 
-  console.log(props);
 
   return (
     <Wrap>
         <ItemText>
-            <h1> {props.title} </h1>
-            <p> {props.description} </p>
+            <h1> {title} </h1>
+            <p> {description} </p>
         </ItemText>
 
         <Buttons>
             <ButtonGroup>
-                <LeftButton> {props.leftBtnText} </LeftButton>
-                <RightButton> {props.rightBtnText} </RightButton>
+                <LeftButton> {leftBtnText} </LeftButton>
+                <RightButton> {rightBtnText} </RightButton>
             </ButtonGroup>
 
             <DownArrow src="./images/down-arrow.svg" />
