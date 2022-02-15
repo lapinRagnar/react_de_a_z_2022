@@ -1,18 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Section() {
+function Section(props) {
+
+  console.log(props);
+
   return (
     <Wrap>
         <ItemText>
-            <h1>Model S</h1>
-            <p>Order Online for Touchless Delivery!</p>
+            <h1> {props.title} </h1>
+            <p> {props.description} </p>
         </ItemText>
 
         <Buttons>
             <ButtonGroup>
-                <LeftButton>Custom Order</LeftButton>
-                <RightButton>Existing Inventory</RightButton>
+                <LeftButton> {props.leftBtnText} </LeftButton>
+                <RightButton> {props.rightBtnText} </RightButton>
             </ButtonGroup>
 
             <DownArrow src="./images/down-arrow.svg" />
