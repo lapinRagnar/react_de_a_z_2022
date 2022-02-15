@@ -12,6 +12,10 @@ commande pour créer l'app clone du tesla
 
 - snippet : rfce 
 
+###
+# installation de styled-component
+#####
+
 
 
 
