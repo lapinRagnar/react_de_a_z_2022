@@ -16,6 +16,33 @@ commande pour créer l'app clone du tesla
 # installation de styled-component
 #####
 
+https://styled-components.com/docs/basics#getting-started
+npm ....
+
+###
+# installation de material ui
+###
+
+
+https://mui.com/components/material-icons/?query=menu
+
+https://www.npmjs.com/package/@mui/icons-material
+
+menu icon 
+> npm install @mui/icons-material
+
+
+###
+# animation module - effets
+###
+
+https://www.react-reveal.com/
+
+https://www.react-reveal.com/docs/
+
+> npm install react-reveal --save
+
+
 
 
 
