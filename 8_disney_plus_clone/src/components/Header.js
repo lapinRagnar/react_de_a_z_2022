@@ -82,11 +82,12 @@ const NavMenu = styled.div`
             &:after{
                 content: "";
                 height: 4px;
-                background: white;
+                background: green;
                 position: absolute;
                 left: 0;
                 right: 0;
                 bottom: -6px;
+                transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
                 opacity: 0;
                 transform: scaleX(0);
             }
