@@ -43,6 +43,12 @@ https://www.react-reveal.com/docs/
 > npm install react-reveal --save
 
 
+============
+
+pour installer l'app
+
+> npm install
+
 
 
 
