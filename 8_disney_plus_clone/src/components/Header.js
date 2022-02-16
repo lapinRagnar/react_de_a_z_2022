@@ -5,16 +5,16 @@ function Header() {
 
   return (
     
-    <Container>
+    <Nav>
         Header
-    </Container>
+    </Nav>
   )
 
 }   
 
 export default Header
 
-const Container = styled.div`
+const Nav = styled.nav`
     background: #090b13;
     height: 70px;
 
