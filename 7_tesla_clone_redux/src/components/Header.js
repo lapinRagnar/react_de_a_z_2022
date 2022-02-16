@@ -2,29 +2,36 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { selectCars } from '../features/car/carSlice'
+import { useSelector } from 'react-redux'
 
 
 function Header() {
 
   const [burgerStatus, setburgerStatus] = useState(false)
+  const cars = useSelector(selectCars)
+
 
   return (
 
     <Container>
-        <a href="">
+        <a href="https://google.fr">
           <img src="./images/logo.svg" alt="" />
         </a>
 
         <Menu>
-          <a href="">Model S</a>  
-          <a href="">Model 3</a>  
-          <a href="">Model X</a>  
-          <a href="">Model Y</a>  
+
+          { cars && cars.map((car, index) => (
+
+            <a href="https://google.fr" key={index} > {car} </a> 
+
+          ))}
+  
         </Menu>
 
         <RightMenu>
-          <a href="">Shop</a>
-          <a href="">Tesla Account</a>
+          <a href="http://google.fr">Shop</a>
+          <a href="http://google.fr">Tesla Account</a>
           <CustomMenu onClick={() => setburgerStatus(true)} />
         </RightMenu>
 
@@ -34,12 +41,12 @@ function Header() {
             <CustomClose onClick={() => setburgerStatus(false) } />
           </CloseWrapper>
 
-          <li><a href="#">Existing inventory</a></li>
-          <li><a href="#">Used inventory</a></li>
-          <li><a href="#">Trade-in</a></li>
-          <li><a href="#">Cybertruck</a></li>
-          <li><a href="#">Existing inventory</a></li>
-          <li><a href="#">Existing inventory</a></li>
+          <li><a href="https://google.fr">Existing inventory</a></li>
+          <li><a href="https://google.fr">Used inventory</a></li>
+          <li><a href="https://google.fr">Trade-in</a></li>
+          <li><a href="https://google.fr">Cybertruck</a></li>
+          <li><a href="https://google.fr">Existing inventory</a></li>
+          <li><a href="https://google.fr">Existing inventory</a></li>
 
         </BurgerNav>
 
