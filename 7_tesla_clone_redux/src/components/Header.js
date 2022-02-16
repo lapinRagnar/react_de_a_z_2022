@@ -41,11 +41,17 @@ function Header() {
             <CustomClose onClick={() => setburgerStatus(false) } />
           </CloseWrapper>
 
+          { cars && cars.map((car, index) => (
+            
+            <li key={index} ><a href="https://google.fr">{car}</a></li>
+            
+
+          ))}
+
           <li><a href="https://google.fr">Existing inventory</a></li>
           <li><a href="https://google.fr">Used inventory</a></li>
           <li><a href="https://google.fr">Trade-in</a></li>
           <li><a href="https://google.fr">Cybertruck</a></li>
-          <li><a href="https://google.fr">Existing inventory</a></li>
           <li><a href="https://google.fr">Existing inventory</a></li>
 
         </BurgerNav>
