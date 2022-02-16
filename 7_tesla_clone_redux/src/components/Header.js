@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 
 function Header() {
+
+  const [burgerStatus, setburgerStatus] = useState(false)
+
   return (
 
     <Container>
@@ -22,19 +25,22 @@ function Header() {
         <RightMenu>
           <a href="">Shop</a>
           <a href="">Tesla Account</a>
-          <CustomMenu />
+          <CustomMenu onClick={() => setburgerStatus(true)} />
         </RightMenu>
 
-        <BurgerNav>
+        <BurgerNav show={burgerStatus} >
+
           <CloseWrapper>
-            <CustomClose />
+            <CustomClose onClick={() => setburgerStatus(false) } />
           </CloseWrapper>
-          <li><a href="">Existing inventory</a></li>
-          <li><a href="">Used inventory</a></li>
-          <li><a href="">Trade-in</a></li>
-          <li><a href="">Cybertruck</a></li>
-          <li><a href="">Existing inventory</a></li>
-          <li><a href="">Existing inventory</a></li>
+
+          <li><a href="#">Existing inventory</a></li>
+          <li><a href="#">Used inventory</a></li>
+          <li><a href="#">Trade-in</a></li>
+          <li><a href="#">Cybertruck</a></li>
+          <li><a href="#">Existing inventory</a></li>
+          <li><a href="#">Existing inventory</a></li>
+
         </BurgerNav>
 
     </Container>
@@ -104,6 +110,7 @@ const BurgerNav = styled.div`
   display: flex;
   flex-direction: column;
   text-align: start;
+  transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%) ' };
 
   li {
     padding: 15px 0;
