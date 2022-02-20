@@ -35,7 +35,7 @@ function Header() {
 
         </NavMenu>
 
-        <UserImg src='https://www.lbisoftware.com/blog/wp-content/uploads/2015/08/fake-profile.png' />
+        <UserImg src='/images/mon-profile.jpg' />
 
     </Nav>
   )
@@ -50,7 +50,7 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
     padding: 0 36px;
-
+    overflow-x: hidden;
 `
 
 const Logo = styled.img`

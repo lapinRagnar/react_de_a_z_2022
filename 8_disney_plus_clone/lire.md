@@ -7,3 +7,21 @@ installer styled-components - faire du css dans js
 > npm install styled-components
 
 
+=======
+mettre un slider
+===============
+
+> npm i react-slick
+
+Also install slick-carousel for css and font
+
+> npm install slick-carousel
+
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
+
+
+
