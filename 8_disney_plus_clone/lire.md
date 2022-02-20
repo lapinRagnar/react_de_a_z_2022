@@ -32,3 +32,10 @@ npm install react-router-dom@5.2.0
 
 
 
+###
+#   utilisation d'une base de données - firebase
+###
+
+> npm install firebase
+> npm install firebase-tools
+
