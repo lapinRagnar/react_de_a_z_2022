@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import db from './firebase'
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collection, doc, onSnapshot, setDoc } from 'firebase/firestore';
 
 
 const Dot = ({color}) => {
@@ -40,10 +40,16 @@ function App() {
         onSnapshot(collection(db, 'colors'), (snapshot) => setColors(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))), []
   )
 
+  const handleNew =  async () => {
+    const docRef = doc(db, 'colors', 'color001')
+    const paylod = { name: 'black', value: '#000'}
+    await setDoc(docRef, paylod)
+  }
+
   return (
     <div>
         <h1>Bonjour!</h1>
-        <button>Nouveau</button>
+        <button onClick={handleNew}>Nouveau</button>
         <ul>
 
           {
