@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import db from './firebase'
+import { collection, onSnapshot } from 'firebase/firestore';
+
 
 const Dot = ({color}) => {
 
@@ -18,21 +22,40 @@ const Dot = ({color}) => {
 
 function App() {
 
+  const [colors, setColors] = useState([{ name: "Loading...", id: 'initial'}])
+
+  console.log(colors);
+
+  // premiere version pour recuperer les data du firestore
+  // useEffect(() => {
+  //   const unsub = onSnapshot(collection(db, 'colors'), (snapshot) => {
+  //     console.log(snapshot.docs.map(doc => doc.data()));
+  //   })
+  //   return unsub
+  // }, [])
+
+  // deuxieme version
+  useEffect(
+    () => 
+        onSnapshot(collection(db, 'colors'), (snapshot) => setColors(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))), []
+  )
 
   return (
     <div>
         <h1>Bonjour!</h1>
         <button>Nouveau</button>
         <ul>
-          <li>
-            <a href="#">editer</a> <Dot color="#f00" /> Red
-          </li>
-          <li>
-            <a href="#">editer</a> <Dot color="#0f0" /> Green
-          </li>
-          <li>
-            <a href="#">editer</a> <Dot color="#00f" /> Blue
-          </li>
+
+          {
+            colors.map((color) => (
+
+              <li key={color.id}>
+                <a href="#">editer</a> <Dot color={color.value} /> { color.name}
+              </li>
+
+            ))
+          }
+
         </ul>
     </div>
   );
