@@ -3,7 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import db from './firebase'
 import { collection, onSnapshot  } from 'firebase/firestore';
-import { handleEdit, handleNew, handleDelete } from './utils'
+import { handleEdit, handleNew, handleDelete, handleQueryDelete } from './utils'
 import Dot from './components/Dot'
 
 
@@ -12,7 +12,6 @@ function App() {
 
   const [colors, setColors] = useState([{ name: "Loading...", id: 'initial'}])
 
-  console.log(colors);
 
   // premiere version pour recuperer les data du firestore
   // useEffect(() => {
@@ -36,7 +35,7 @@ function App() {
         <div className="container">
         <h1>Bonjour!</h1>
           <button className='bouton1' onClick={handleNew}>Nouveau</button>
-          <button className='bouton1' onClick={handleNew}>Query Delete</button>
+          <button className='bouton1' onClick={handleQueryDelete}>Query Delete</button>
           <ul>
 
             {

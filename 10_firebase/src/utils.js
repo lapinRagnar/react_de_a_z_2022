@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, setDoc } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDocs, query, setDoc, where } from 'firebase/firestore';
 import db from './firebase'
 
 // create - CRUD avec addDoc (permet d'ajouter automatiquement l'id)
@@ -27,4 +27,20 @@ export const handleEdit = async (id) => {
 export const handleDelete = async (id) => {
     const docRef = doc(db, 'colors', id)
     await deleteDoc(docRef)
+}
+
+
+export const handleQueryDelete = async (id) => {
+    const userInputName = prompt("entrez le nom de la couleur")
+    const collectionRef = collection(db, 'colors')
+
+    const q = query(collectionRef, where("name", "==", userInputName))
+    const snapshot = await getDocs(q)
+
+    const results = snapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
+    results.forEach(async result => {
+        const docRef = doc(db, 'colors', result.id) 
+        await deleteDoc(docRef)
+    } )
+    
 }
