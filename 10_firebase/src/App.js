@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import db from './firebase'
-import { collection, onSnapshot  } from 'firebase/firestore';
+import { collection, onSnapshot, orderBy, query  } from 'firebase/firestore';
 import { handleEdit, handleNew, handleDelete, handleQueryDelete } from './utils'
 import Dot from './components/Dot'
 
@@ -23,8 +23,12 @@ function App() {
 
   // deuxieme version
   useEffect(
-    () => 
-        onSnapshot(collection(db, 'colors'), (snapshot) => setColors(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))), []
+    () => {
+      const collectionRef = collection(db, 'colors')
+      const q = query(collectionRef, orderBy("timestamp", "desc"))
+      const unsub = onSnapshot(q , (snapshot) => setColors(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))))
+      return unsub
+    }, []
   )
 
 

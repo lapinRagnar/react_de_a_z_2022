@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, getDocs, query, setDoc, where } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore';
 import db from './firebase'
 
 // create - CRUD avec addDoc (permet d'ajouter automatiquement l'id)
@@ -7,7 +7,7 @@ const name = prompt("entrez le nom de la couleur")
 const value = prompt("entrez la valeur hexa de la couleur")
 
 const collectionRef = collection(db, 'colors')
-const payload = { name: name, value: value}
+const payload = { name: name, value: value, timestamp: serverTimestamp()}
 const docRef = await addDoc(collectionRef, payload)
 console.log('le nouveau id est: ' + docRef.id);
 }
@@ -18,9 +18,11 @@ export const handleEdit = async (id) => {
     const value = prompt("entrez la valeur hexa de la couleur")
 
     const docRef = doc(db, 'colors', id)
-    const payload = { name: name, value: value}
+    const payload = { name: name, value: value, timestamp: serverTimestamp()}
 
-    setDoc(docRef, payload)
+    // setDoc(docRef, payload)
+    // setDoc override le doc et updateDoc ne le fais pas
+    updateDoc(docRef, payload)
 }
 
 // suppression
