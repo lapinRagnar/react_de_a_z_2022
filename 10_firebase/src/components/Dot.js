@@ -9,6 +9,7 @@ export default function Dot ({color}) {
         display: "inline-block"
     }
     return (
+        
         <span style={style}></span>
     )
 }

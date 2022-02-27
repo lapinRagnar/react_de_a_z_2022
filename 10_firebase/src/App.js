@@ -3,7 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import db from './firebase'
 import { collection, onSnapshot  } from 'firebase/firestore';
-import { handleEdit, handleNew } from './utils'
+import { handleEdit, handleNew, handleDelete } from './utils'
 import Dot from './components/Dot'
 
 
@@ -33,21 +33,27 @@ function App() {
 
   return (
     <div>
+        <div className="container">
         <h1>Bonjour!</h1>
-        <button onClick={handleNew}>Nouveau</button>
-        <ul>
+          <button className='bouton1' onClick={handleNew}>Nouveau</button>
+          <button className='bouton1' onClick={handleNew}>Query Delete</button>
+          <ul>
 
-          {
-            colors.map((color) => (
+            {
+              colors.map((color) => (
 
-              <li key={color.id}>
-                <a href="#" onClick={ () => handleEdit(color.id) } >editer</a> <Dot color={color.value} /> { color.name}
-              </li>
+                <li key={color.id}>
+                  <button className='bouton2 bouton1' onClick={ () => handleEdit(color.id) } >editer</button> 
+                  <button className='bouton3 bouton1 ' onClick={ () => handleDelete(color.id) } >supprimer</button> 
+                  <Dot color={color.value} /> { color.name}
+                </li>
 
-            ))
-          }
+              ))
+            }
 
-        </ul>
+          </ul>
+        </div>
+
     </div>
   );
 }

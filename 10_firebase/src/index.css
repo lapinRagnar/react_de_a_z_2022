@@ -1,5 +1,10 @@
 body {
   margin: 0;
+  padding: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,3 +16,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.bouton1 {
+  width: 100px;
+  background: rgba(87, 87, 167, 0.733);
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.bouton2 {
+  margin-right: 40px;
+}
+
+.bouton1:hover{
+  background: rgba(36, 185, 56, 0.733);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid green;
+  width: 70%;
+  height: 70%;
+}
+
+
