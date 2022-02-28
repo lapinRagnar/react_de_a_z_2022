@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { logout, signup, useAuth, login } from './firebase'
 import { useRef, useState } from 'react';
+import Profile from './Profile';
 
 function App() {
 
@@ -57,16 +58,41 @@ function App() {
 
       <h1>Authentication tuto</h1>
 
-      <div>Connecté en tant que: { currentUser?.email } </div>
+      { !currentUser && 
+        <>
+          <img className="avatar" src="https://images.assetsdelivery.com/compings_v2/triken/triken1608/triken160800029.jpg" alt="" />
+          <div>Connecté en tant que: { currentUser?.email } </div>
 
-      <div id='fields'>
-        <input ref={emailRef} type="text" placeholder='email' />
-        <input ref={passwordRef} type="password" name="" id="" placeholder='mot de passe!' />
+          <div id='fields'>
+            <input ref={emailRef} type="text" placeholder='email' />
+            <input ref={passwordRef} type="password" name="" id="" placeholder='mot de passe!' />
+          </div>
+
+          <button disabled={loading } onClick={handleSignup}>Sign up</button>
+          <button disabled={loading } onClick={handleLogin}>Log in</button>
+          
+        </>
+
+      }
+      
+      
+
+
+
+      <div>
+
+        { currentUser && 
+          <>
+            Bonjour ({ currentUser?.email })
+            <Profile /> 
+            <button disabled={loading || !currentUser } onClick={handleLogout}>Log out</button>
+            <div>
+            </div>
+          </>
+        
+        }  
+
       </div>
-
-      <button disabled={loading || currentUser } onClick={handleSignup}>Sign up</button>
-      <button disabled={loading || currentUser } onClick={handleLogin}>Log in</button>
-      <button disabled={loading || !currentUser } onClick={handleLogout}>Log out</button>
 
     </div>
   );

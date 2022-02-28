@@ -25,4 +25,13 @@ button {
   margin: 0px 20px 0 0;
 } */
 
+.profile-container {
+  margin-top: 50px;
+}
+
+.avatar {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
 
