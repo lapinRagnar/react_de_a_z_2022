@@ -1,15 +1,55 @@
 import logo from './logo.svg';
 import './App.css';
-import { signup } from './firebase'
-import { useRef } from 'react';
+import { logout, signup, useAuth, login } from './firebase'
+import { useRef, useState } from 'react';
 
 function App() {
+
+  
+  const [ loading, setLoading ] = useState(false);
+  const currentUser = useAuth()
 
   const emailRef = useRef()
   const passwordRef = useRef()
 
   async function handleSignup() {
-    await signup(emailRef.current.value, passwordRef.current.value)
+
+    setLoading(true)
+
+    try {
+      await signup(emailRef.current.value, passwordRef.current.value)
+    } catch (e){
+      console.log("erreur : " + e.message);
+    }
+
+    setLoading(false)
+
+  }
+
+  async function handleLogin() {
+
+    setLoading(true)
+
+    try {
+      await login(emailRef.current.value, passwordRef.current.value)
+    } catch (e){
+      console.log("erreur : " + e.message);
+    }
+
+    setLoading(false)
+
+  }
+
+  async function handleLogout() {
+    
+    setLoading(true)
+    try {
+      await logout()
+    } catch {
+      console.log("erreur de deconnexion! ");
+    }
+    setLoading(false)
+
   }
 
   return (
@@ -17,12 +57,16 @@ function App() {
 
       <h1>Authentication tuto</h1>
 
+      <div>Connecté en tant que: { currentUser?.email } </div>
+
       <div id='fields'>
         <input ref={emailRef} type="text" placeholder='email' />
         <input ref={passwordRef} type="password" name="" id="" placeholder='mot de passe!' />
       </div>
 
-      <button onClick={handleSignup}>Sign up</button>
+      <button disabled={loading || currentUser } onClick={handleSignup}>Sign up</button>
+      <button disabled={loading || currentUser } onClick={handleLogin}>Log in</button>
+      <button disabled={loading || !currentUser } onClick={handleLogout}>Log out</button>
 
     </div>
   );
