@@ -1,28 +1,57 @@
 // import * as firebase from "firebase";
-import firebase from 'firebase/compat/app'
-import 'firebase/compat/auth'
-import 'firebase/compat/firestore'
-import { doc, onSnapshot } from "firebase/firestore";
+import { initializeApp } from 'firebase/app'
+import { getFirestore, collection, getDocs, onSnapshot } from 'firebase/firestore';
 
 
+// mon clé a moi
 const firebaseConfig = {
-  apiKey: "AIzaSyA9BnlX96fMf7XiUVCFRsoQzG8DGERJkeY",
-  authDomain: "disneyplus-clone-a33d5.firebaseapp.com",
-  projectId: "disneyplus-clone-a33d5",
-  storageBucket: "disneyplus-clone-a33d5.appspot.com",
-  messagingSenderId: "37918794208",
-  appId: "1:37918794208:web:dbe9842dfe1dda522a4b85",
-  measurementId: "G-DRVLJKWRWG",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-const db = firebaseApp.firestore();
-const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
-// const storage = firebase.storage();
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyA9BnlX96fMf7XiUVCFRsoQzG8DGERJkeY",
+//   authDomain: "disneyplus-clone-a33d5.firebaseapp.com",
+//   projectId: "disneyplus-clone-a33d5",
+//   storageBucket: "disneyplus-clone-a33d5.appspot.com",
+//   messagingSenderId: "37918794208",
+//   appId: "1:37918794208:web:dbe9842dfe1dda522a4b85",
+//   measurementId: "G-DRVLJKWRWG",
+// };
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const collectionMovies = collection(db, "users")
+
+console.log(collectionMovies);
+
+// en utilisant getDocs
+// getDocs(collectionMovies)
+//   .then((snapshot) =>{
+//     let movies = []
+//     snapshot.docs.forEach((doc) => {
+//       movies.push({...doc.data(), id: doc.id})
+//     })
+//     console.log(movies);
+//   })
+//   .catch((err) => {
+//     console.log(err.message);
+//   })
 
 
-export { auth, provider };
+// const movies = onSnapshot(collectionMovies, (doc) => {
+//   console.log("Current data: ", doc.data());
+// });
+
+
+
+
 export default db;
 
 
