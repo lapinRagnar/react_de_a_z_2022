@@ -1,5 +1,12 @@
 body {
+  
+  background: url("https://www.azutura.com/media/catalog/product/cache/49/image/650x/040ec09b1e35df139433887a97daa66f/W/S/WS-47373_WP.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
   margin: 0;
+
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +17,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.mon-card-container{
+  background: rgba(0, 255, 13, 0.267);
+  padding: 40px;
 }

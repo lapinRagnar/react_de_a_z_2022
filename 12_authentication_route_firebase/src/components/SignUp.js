@@ -10,12 +10,12 @@ export default function SignUp() {
   return (
     <>
 
-        <Card>
+        <Card className='mon-card-container'>
             <Card.Body>
                 <h2 className="text-center mb-4">Sign Up</h2>
             </Card.Body>
 
-            <Form className='p-3'>
+            <Form>
 
                 <Form.Group id='email'>
                     <Form.Label>Email</Form.Label>
