@@ -1,37 +1,36 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-export default class ClientForm extends Component {
+const ClientForm = (props) => {
 
-    state = {
-        nouveauClient: ''
-    }
+    const [nouveauClient, setNouveauClient] = useState("")
 
-    handleChange = (event) => {
-        const value = 
-        this.setState({ nouveauClient: event.currentTarget.value})
+    const handleChange = (event) => {
+        const value = setNouveauClient(event.currentTarget.value)
     }
 
     // ajouter clients
-    handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault()
 
         const id = new Date().getTime()
-        const nom = this.state.nouveauClient
+        const nom = nouveauClient
 
-        this.props.onClientAdd({id, nom})
+        props.onClientAdd({id, nom})
 
-        this.setState({nouveauClient: ''})
+        setNouveauClient("")
     }
 
-    render() {
-        return (
-        
-        <form action="" onSubmit={this.handleSubmit} >
-            <input value={this.state.nouveauClient} onChange={this.handleChange} type="text" placeholder='ajouter un client' />
+
+    return (
+    
+        <form action="" onSubmit={handleSubmit} >
+            <input value={nouveauClient} onChange={handleChange} type="text" placeholder='ajouter un client' />
             <button >Confirmer</button>
 
         </form>
-        )
-    }
+    )
+
 
 }
+
+export default ClientForm
