@@ -9,10 +9,12 @@ class App extends React.Component {
       {id: 1, nom: 'client 1'},
       {id: 2, nom: 'client 2'},
       {id: 3, nom: 'client 3' }
-    ]
+    ],
+    compteur: 0
   }
 
   handleClick = () => {
+    this.setState({ compteur: this.state.compteur + 1})
     console.log(this.state);
   }
 
@@ -21,6 +23,10 @@ class App extends React.Component {
 
     return <div>
       <h1>{title} </h1>
+
+      <div>
+        compteur: { this.state.compteur }
+      </div>
 
       <button onClick={this.handleClick} >Cliquer moi!</button>
 
