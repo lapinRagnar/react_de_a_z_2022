@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import Client from './components/Client';
 
 class App extends React.Component {
 
@@ -53,7 +54,7 @@ class App extends React.Component {
       <h1>{title} </h1>
 
       <ul>
-        {this.state.clients.map((client) => <li key={client.id} >{client.nom} <button onClick={() => this.handleDelete(client.id)}>X</button> </li>)}
+        {this.state.clients.map((client) => <Client details={client} onDelete={this.handleDelete} />)}
       </ul>
       <form action="" onSubmit={this.handleSubmit} >
         <input value={this.state.nouveauClient} onChange={this.handleChange} type="text" placeholder='ajouter un client' />
