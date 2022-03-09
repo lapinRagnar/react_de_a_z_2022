@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 import Client from './components/Client';
 import ClientForm from './components/ClientForm';
+import Counter from './components/Counter';
 
 class App extends React.Component {
 
@@ -40,6 +41,8 @@ class App extends React.Component {
 
     return <div>
       <h1>{title} </h1>
+
+      <Counter />
 
       <ul>
         {this.state.clients.map((client) => <Client details={client} onDelete={this.handleDelete} />)}
