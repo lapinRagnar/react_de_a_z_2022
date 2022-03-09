@@ -1,55 +1,53 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import Client from './components/Client';
 import ClientForm from './components/ClientForm';
 
 
-class App extends React.Component {
+const App = () => {
 
+  const [clients, setClients] = useState([
+    {id: 1, nom: 'client 1'},
+    {id: 2, nom: 'client 2'},
+    {id: 3, nom: 'client 3' }
+  ])
 
-  state = {
-    clients: [
-      {id: 1, nom: 'client 1'},
-      {id: 2, nom: 'client 2'},
-      {id: 3, nom: 'client 3' }
-    ]
-  }
 
   // supprimer clients
-  handleDelete = (id) => {
+  const handleDelete = (id) => {
 
-    const clients = [...this.state.clients]
+    const updatedClients = [...clients]
 
-    const index = clients.findIndex(client => client.id === id)
+    const index = updatedClients.findIndex(client => client.id === id)
 
-    clients.splice(index, 1)
+    updatedClients.splice(index, 1)
 
-    this.setState({ clients})
+    setClients(updatedClients)
   }
 
-  handleAdd = client => {
-    const clients = [...this.state.clients]  
-    clients.push(client)
+  const handleAdd = client => {
+    const updatedClients = [...clients]  
+    updatedClients.push(client)
 
-    this.setState({clients})
+    setClients(updatedClients)
   }
 
 
-  render() {
-    const title = 'liste des clients'
+  
+  const title = 'liste des clients'
 
-    return <div>
-      <h1>{title} </h1>
+  return <div>
+    <h1>{title} </h1>
 
 
-      <ul>
-        {this.state.clients.map((client) => <Client details={client} onDelete={this.handleDelete} />)}
-      </ul>
+    <ul>
+      {clients.map((client) => <Client key={client.id} details={client} onDelete={handleDelete} />)}
+    </ul>
 
-      <ClientForm onClientAdd={this.handleAdd} />
+    <ClientForm onClientAdd={handleAdd} />
 
-    </div>
-  }
+  </div>
+  
 }
 
 export default App;
