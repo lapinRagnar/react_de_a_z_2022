@@ -4,6 +4,8 @@ import React from 'react';
 
 class App extends React.Component {
 
+  clientInput = React.createRef();
+
   state = {
     clients: [
       {id: 1, nom: 'client 1'},
@@ -25,7 +27,7 @@ class App extends React.Component {
   // ajouter clients
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log("ca marche");
+    console.log(this.clientInput.current.value);
   }
 
 
@@ -39,7 +41,7 @@ class App extends React.Component {
         {this.state.clients.map((client) => <li key={client.id} >{client.nom} <button onClick={() => this.handleDelete(client.id)}>X</button> </li>)}
       </ul>
       <form action="" onSubmit={this.handleSubmit} >
-        <input type="text" placeholder='ajouter un client' />
+        <input ref={this.clientInput} type="text" placeholder='ajouter un client' />
         <button >Confirmer</button>
 
       </form>
