@@ -15,12 +15,10 @@ class App extends React.Component {
   render() {
     const title = 'liste des clients'
 
-    const elements = this.state.clients.map((client) => <li>{client.nom} <button>X</button> </li>)
-
     return <div>
       <h1>{title} </h1>
       <ul>
-        {elements}
+        {this.state.clients.map((client) => <li>{client.nom} <button>X</button> </li>)}
       </ul>
       <form action="">
         <input type="text" placeholder='ajouter un client' />
