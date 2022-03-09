@@ -14,16 +14,14 @@ class App extends React.Component {
 
   render() {
     const title = 'liste des clients'
-    const element = <li>test de varibles</li>
-    const elements = [
-      <li>premier element</li>,
-      <li>deuxieme element</li>
-    ]
+
+    const elements = this.state.clients.map(function(client) {
+      return <li>{client.nom} <button>X</button> </li>
+    })
 
     return <div>
       <h1>{title} </h1>
       <ul>
-        {element}
         {elements}
       </ul>
       <form action="">
