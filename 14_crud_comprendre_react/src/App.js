@@ -9,16 +9,13 @@ class App extends React.Component {
       {id: 1, nom: 'client 1'},
       {id: 2, nom: 'client 2'},
       {id: 3, nom: 'client 3' }
-    ],
-    compteur: 0
+    ]
   }
 
-  handleClick = () => {
-    const clients = this.state.clients.slice()
-    clients.push({id: 4, nom: 'client 4'})
-
-    this.setState({ clients: clients })
+  handleDelete = (id) => {
+    console.log(id);
   }
+
 
   render() {
     const title = 'liste des clients'
@@ -26,16 +23,10 @@ class App extends React.Component {
     return <div>
       <h1>{title} </h1>
 
-      <div>
-        compteur: { this.state.compteur }
-      </div>
-
-      <button onClick={this.handleClick} >Cliquer moi!</button>
-
       <ul>
-        {this.state.clients.map((client) => <li>{client.nom} <button>X</button> </li>)}
+        {this.state.clients.map((client) => <li key={client.id} >{client.nom} <button onClick={() => this.handleDelete(client.id)}>X</button> </li>)}
       </ul>
-      <form action="">
+      <form action="" >
         <input type="text" placeholder='ajouter un client' />
         <button>Confirmer</button>
 
