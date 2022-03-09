@@ -12,7 +12,7 @@ class App extends React.Component {
     ]
   }
 
-  handleClick () {
+  handleClick = () => {
     console.log(this.state);
   }
 
@@ -22,7 +22,7 @@ class App extends React.Component {
     return <div>
       <h1>{title} </h1>
 
-      <button onClick={() => this.handleClick()} >Cliquer moi!</button>
+      <button onClick={this.handleClick} >Cliquer moi!</button>
 
       <ul>
         {/* {this.state.clients.map((client) => <li>{client.nom} <button>X</button> </li>)} */}
