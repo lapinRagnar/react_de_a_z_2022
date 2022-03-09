@@ -15,9 +15,7 @@ class App extends React.Component {
   handleDelete = (id) => {
     // travailler sur la copide de l'objet state
     const clients =  this.state.clients.slice()
-    const index = clients.findIndex(function(client) {
-      return client.id === id
-    })
+    const index = clients.findIndex(client => client.id === id)
 
     clients.splice(index, 1)
     this.setState({ clients: clients})
