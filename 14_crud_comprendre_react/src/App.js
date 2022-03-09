@@ -13,7 +13,7 @@ class App extends React.Component {
   }
 
   handleClick () {
-    alert('bonjour!')
+    console.log(this.state);
   }
 
   render() {
@@ -22,10 +22,10 @@ class App extends React.Component {
     return <div>
       <h1>{title} </h1>
 
-      <button onClick={this.handleClick} >Cliquer moi!</button>
+      <button onClick={this.handleClick.bind(this)} >Cliquer moi!</button>
 
       <ul>
-        {this.state.clients.map((client) => <li>{client.nom} <button>X</button> </li>)}
+        {/* {this.state.clients.map((client) => <li>{client.nom} <button>X</button> </li>)} */}
       </ul>
       <form action="">
         <input type="text" placeholder='ajouter un client' />
