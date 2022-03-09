@@ -12,6 +12,7 @@ class App extends React.Component {
     ]
   }
 
+  // supprimer clients
   handleDelete = (id) => {
     // travailler sur la copide de l'objet state
     const clients =  this.state.clients.slice()
@@ -19,6 +20,12 @@ class App extends React.Component {
 
     clients.splice(index, 1)
     this.setState({ clients: clients})
+  }
+
+  // ajouter clients
+  handleSubmit = (event) => {
+    event.preventDefault()
+    console.log("ca marche");
   }
 
 
@@ -31,9 +38,9 @@ class App extends React.Component {
       <ul>
         {this.state.clients.map((client) => <li key={client.id} >{client.nom} <button onClick={() => this.handleDelete(client.id)}>X</button> </li>)}
       </ul>
-      <form action="" >
+      <form action="" onSubmit={this.handleSubmit} >
         <input type="text" placeholder='ajouter un client' />
-        <button>Confirmer</button>
+        <button >Confirmer</button>
 
       </form>
     </div>
