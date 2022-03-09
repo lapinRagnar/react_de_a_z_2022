@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ClientForm = (props) => {
+const ClientForm = ({ onClientAdd }) => {
 
     const [nouveauClient, setNouveauClient] = useState("")
 
@@ -15,7 +15,7 @@ const ClientForm = (props) => {
         const id = new Date().getTime()
         const nom = nouveauClient
 
-        props.onClientAdd({id, nom})
+        onClientAdd({id, nom})
 
         setNouveauClient("")
     }
