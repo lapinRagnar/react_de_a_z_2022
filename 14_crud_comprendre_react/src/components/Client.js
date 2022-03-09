@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 
-class Client extends Component {
+const Client = (props) => {
 
-    render() {
+    // const details = this.props.details
+    // const onDelete = this.props.onDelete
+    // sont l'equivalent de 
 
-        // const details = this.props.details
-        // const onDelete = this.props.onDelete
-        // sont l'equivalent de 
-
-        const { details, onDelete } = this.props
+    const { details, onDelete } = props
 
 
-        return (
-            <li key={details.id} >
-                {details.nom} <button onClick={() => onDelete(this.props.details.id)}>X</button>             
-            </li>
-        );
-    }
+    return (
+        <li key={details.id} >
+            {details.nom} <button onClick={() => onDelete(props.details.id)}>X</button>             
+        </li>
+    );
+    
 }
 
 export default Client;
