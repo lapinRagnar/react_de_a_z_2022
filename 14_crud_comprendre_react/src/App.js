@@ -14,8 +14,10 @@ class App extends React.Component {
   }
 
   handleClick = () => {
-    this.setState({ compteur: this.state.compteur + 1})
-    console.log(this.state);
+    const clients = this.state.clients.slice()
+    clients.push({id: 4, nom: 'client 4'})
+
+    this.setState({ clients: clients })
   }
 
   render() {
@@ -31,7 +33,7 @@ class App extends React.Component {
       <button onClick={this.handleClick} >Cliquer moi!</button>
 
       <ul>
-        {/* {this.state.clients.map((client) => <li>{client.nom} <button>X</button> </li>)} */}
+        {this.state.clients.map((client) => <li>{client.nom} <button>X</button> </li>)}
       </ul>
       <form action="">
         <input type="text" placeholder='ajouter un client' />
