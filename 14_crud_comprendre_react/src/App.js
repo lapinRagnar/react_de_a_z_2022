@@ -12,11 +12,18 @@ class App extends React.Component {
     ]
   }
 
+  handleClick () {
+    alert('bonjour!')
+  }
+
   render() {
     const title = 'liste des clients'
 
     return <div>
       <h1>{title} </h1>
+
+      <button onClick={this.handleClick} >Cliquer moi!</button>
+
       <ul>
         {this.state.clients.map((client) => <li>{client.nom} <button>X</button> </li>)}
       </ul>
