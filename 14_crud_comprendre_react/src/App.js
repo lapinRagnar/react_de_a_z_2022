@@ -17,11 +17,15 @@ class App extends React.Component {
   // supprimer clients
   handleDelete = (id) => {
     // travailler sur la copide de l'objet state
-    const clients =  this.state.clients.slice()
+    // const clients =  this.state.clients.slice()  est l'equivalent de
+    const clients = [...this.state.clients]
+
     const index = clients.findIndex(client => client.id === id)
 
     clients.splice(index, 1)
-    this.setState({ clients: clients})
+    
+    // this.setState({ clients: clients}) est l'equivalent de :
+    this.setState({ clients})
   }
 
   // ajouter clients
@@ -29,16 +33,23 @@ class App extends React.Component {
     event.preventDefault()
     const id = new Date().getTime()
     const nom = this.state.nouveauClient
-    const client = {id: id, nom: nom}
-    const clients = this.state.clients.slice()
-    clients.push(client)
-    this.setState({clients: clients, nouveauClient: ''})
+    // const client = {id, nom}   on l'a mis dans le push()
+    // const clients = this.state.clients.slice() est l'equivalent de :
+    const clients = [...this.state.clients]  // travailler sur la copie avec un spaid operator
+    clients.push({id, nom})
+    // this.setState({clients: clients, nouveauClient: ''}) est l'equivalent de :
+    this.setState({clients, nouveauClient: ''})
   }
 
+  // handleChange = (event) => {
+  //   const value = event.currentTarget.value
+  //   this.setState({ nouveauClient: value})
+  // }
+  // est l'aquivalent de :
+
   handleChange = (event) => {
-    const value = event.currentTarget.value
-    this.setState({ nouveauClient: value})
-    console.log(value);
+    const value = 
+    this.setState({ nouveauClient: event.currentTarget.value})
   }
 
 
