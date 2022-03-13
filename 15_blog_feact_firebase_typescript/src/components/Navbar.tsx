@@ -11,7 +11,9 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   root: {
-    color: 'white',
+    '& a' : {
+      color: 'white'
+    }
   }
 })
 
