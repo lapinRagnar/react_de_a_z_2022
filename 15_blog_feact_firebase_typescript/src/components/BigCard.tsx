@@ -15,19 +15,19 @@ const useStyles = makeStyles({
   },
 });
 
-type LittleCardProps = {
+type BigCardProps = {
   title: string;
-  description: string;
+  content: string;
   img: string;
   slug: string;
 }
 
-export default function LitleCard(props: LittleCardProps) {
+export default function BigCard(props: BigCardProps) {
 
   const classes = useStyles()
 
   return (
-    <Card sx={{ maxWidth: 345 }} className={classes.root} >
+    <Card sx={{ maxWidth: 945 }} className={classes.root} >
       <CardMedia
         component="img"
         height="140"
@@ -39,16 +39,10 @@ export default function LitleCard(props: LittleCardProps) {
           {props.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          { props.description }
+          { props.content }
         </Typography>
       </CardContent>
-      <CardActions>
 
-        <Link to={"/blog/" + props.slug}>
-          <Button size="small">Détail</Button>        
-        </Link>
-
-      </CardActions>
     </Card>
   );
 }
