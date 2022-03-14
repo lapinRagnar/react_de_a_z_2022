@@ -46,3 +46,37 @@ a:link{
   text-decoration: none;
   color: black;
 }
+
+.navigation1 {
+  font-size: 20px;
+  height: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid coral;
+}
+
+.navigation1:hover{
+  background:rgba(128, 128, 128, 0.459);
+  width: 400px;
+  height: auto;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: green;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titre-be {
+  font-size: 50px;
+  background-color: darkseagreen;
+}
+
+.titre-be:hover{
+  background-color: darkgoldenrod;
+}
