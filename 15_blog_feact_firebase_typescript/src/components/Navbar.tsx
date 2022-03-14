@@ -8,6 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
+import { auth } from '../components/Firebase'
+import { signOut } from 'firebase/auth'
 
 const useStyles = makeStyles({
   root: {
@@ -37,12 +39,39 @@ export default function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link to="/" > Mon super Blog </Link> 
           </Typography>
-          <Button color="inherit">          
-            <Link  to="/login">Login</Link>      
-          </Button>
-          <Button color="inherit">
-            <Link to="/register">Register</Link>
-          </Button>
+
+          { !auth.currentUser && 
+
+            <div>
+              <Button color="inherit">          
+                <Link  to="/login">Login</Link>      
+              </Button>
+              <Button color="inherit">
+                <Link to="/register">Register</Link>
+              </Button>
+            </div>
+          }
+
+          { auth.currentUser &&
+            <div>
+              <Typography>  </Typography>
+
+              <Button
+                color="inherit"
+
+              >
+                ( Bonjour { auth.currentUser.email } ) Editer
+              </Button>
+              <Button 
+                color="inherit"
+                onClick={() => signOut(auth)}  
+                >
+                   Se déconnecter
+              </Button>
+            </div>
+          
+          }
+
         </Toolbar>
       </AppBar>
     </Box>

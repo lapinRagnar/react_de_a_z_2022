@@ -4,15 +4,12 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { makeStyles } from '@mui/styles';
 import { auth } from '../components/Firebase'
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { updateProfile } from 'firebase/auth';
 import { Navigate } from 'react-router-dom';
 
 
 
-
-
-
-export default function Register() {
+export default function EditUser() {
 
   const classes = useStyles()
 
@@ -21,7 +18,7 @@ export default function Register() {
   const [password, setPassword ] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
 
-  const handleSignUp = () => {
+  const handleEditUser = () => {
  
 
     if ( email.length < 4 ) {
@@ -32,29 +29,16 @@ export default function Register() {
       alert('la longeur du mot de passe doit être > 4! ')
       return
     }
+    if (auth.currentUser) {
+      updateProfile(auth.currentUser, { 
+        displayName: username
+      })
+        .then(() => {
+          console.log("profile mise à jour");
+          
+        })
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user
-        alert('enregistrement reussi!')
-        console.log(user);
-        
-      } )
-      .catch((error) => {
-        const errorCode = error.code
-        const errorMessage = error.message
-        console.log(errorCode);
-        console.log(errorMessage);
-        return errorMessage
-        
-      })
-      .then(() => {
-        if (auth.currentUser) {
-          updateProfile(auth.currentUser, {
-            displayName: username
-          })
-        }
-      })
+    }
   }
 
   if (auth.currentUser) {
@@ -87,7 +71,6 @@ export default function Register() {
               value={email} 
               onChange={(e) => setEmail(e.target.value)}
             />
-            
         </Typography>
 
         <Typography>
@@ -126,7 +109,7 @@ export default function Register() {
           color="primary" 
           fullWidth={true} 
           variant="contained"
-          onClick={() => handleSignUp()}
+          onClick={() => handleEditUser()}
           >
             Enregistrer
         </Button>

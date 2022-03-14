@@ -14,9 +14,13 @@ function App() {
   const [user, setUser] = useState({})
 
   onAuthStateChanged(auth, (user) => {
-    if (user) {
+    if (!user) {
+      console.log("pas d'utilisateur");
+      
+    } else {
       setUser(user)      
     }
+ 
   })
 
 
