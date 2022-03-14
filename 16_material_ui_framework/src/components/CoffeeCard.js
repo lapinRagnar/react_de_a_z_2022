@@ -26,7 +26,7 @@ const bull = (
 export default function CoffeeCard(props) {
 
 
-  const { avatarSrc, title, subtitle, description, imageSrc } = props
+  const { avatarUrl, title, subtitle, description, imageUrl } = props
 
   return (
 
@@ -35,7 +35,7 @@ export default function CoffeeCard(props) {
         <CardHeader
             avatar={ 
                 <Avatar 
-                    src={avatarSrc}
+                    src={avatarUrl}
                 />
             
             }
@@ -51,7 +51,7 @@ export default function CoffeeCard(props) {
         <CardMedia
             component="img"
             height="194"
-            image={imageSrc}
+            image={imageUrl}
             alt="Paella dish"
             style={{ height: "10%"}}
         />

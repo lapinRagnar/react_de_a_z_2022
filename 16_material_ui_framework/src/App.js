@@ -10,6 +10,7 @@ import IntroMaterialUi from './pages/IntroMaterialUi';
 import './App.css';
 import Home from "./pages/Home";
 import MachineAcafe from "./pages/MachineAcafe";
+import PasserPropsDansMakestyle from "./components/PasserPropsDansMakestyle";
 
 
 
@@ -24,7 +25,8 @@ function App() {
         
         <Route path='/' element={<Home />} />
         <Route path='/intro' element={<IntroMaterialUi />}  /> 
-        <Route path='/machine-a-cafe' element={<MachineAcafe />} />      
+        <Route path='/machine-a-cafe' element={<MachineAcafe />} />
+        <Route path="/passer-props-dans-makestyle" element={<PasserPropsDansMakestyle />} />      
 
       </Routes>
         

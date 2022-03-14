@@ -15,6 +15,9 @@ export default function Home() {
             <div className='navigation1'>
                 <Link to='/machine-a-cafe'>Boutique machine à café</Link>
             </div >
+            <div className='navigation1'>
+                <Link to='/passer-props-dans-makestyle'>makeStyle() avancée - passer dans props </Link>
+            </div >
         </nav>   
 
     </div>
