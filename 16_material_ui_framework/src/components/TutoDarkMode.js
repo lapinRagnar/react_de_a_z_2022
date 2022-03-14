@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 
-
 export default function TutoDarkMode() {
 
   const [darkMode, setDarkMode] = useState(false)
@@ -31,7 +30,7 @@ export default function TutoDarkMode() {
                 <Button
                     variant='contained'
                     color='primary'
-                    style={{  marginTop: "70px", width: '200px'}}
+                    style={{  marginTop: "70px"}}
                     >
                     Mon super bouton 1
                 </Button>
@@ -39,6 +38,7 @@ export default function TutoDarkMode() {
                 <Button
                     variant='contained'
                     color='secondary'
+                    style={{  marginTop: "20px"}}
                     >
                     Mon super bouton 2
                 </Button>
