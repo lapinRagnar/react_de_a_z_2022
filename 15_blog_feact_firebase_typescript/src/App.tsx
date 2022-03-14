@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from '@mui/material';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Blog from './pages/Blog';
+import { auth } from './components/Firebase'
+import { onAuthStateChanged } from 'firebase/auth';
 
 function App() {
+
+  const [user, setUser] = useState({})
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setUser(user)      
+    }
+  })
+
 
   return (
 
