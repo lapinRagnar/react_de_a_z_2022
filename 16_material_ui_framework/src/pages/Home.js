@@ -28,6 +28,9 @@ export default function Home() {
             <div className='navigation1'>
                 <Link className={classes.linkStyle} to='/theming'> exemple theming -  </Link>
             </div >
+            <div className='navigation1'>
+                <Link className={classes.linkStyle} to='/paper'> tuto Paper - pour changer facilement le background  </Link>
+            </div >
             
         </nav>   
 

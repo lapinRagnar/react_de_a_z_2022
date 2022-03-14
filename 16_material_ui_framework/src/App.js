@@ -12,6 +12,7 @@ import PasserPropsDansMakestyle from "./components/PasserPropsDansMakestyle";
 import TutoTypography from "./components/TutoTypography";
 import './App.css';
 import TutoTheming from "./components/TutoTheming";
+import TutoPaper from "./components/TutoPaper";
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/passer-props-dans-makestyle" element={<PasserPropsDansMakestyle />} />   
         <Route path="/typograpgy" element={ <TutoTypography /> } />   
         <Route path="/theming" element={<TutoTheming />} />
+        <Route path="/paper" element={<TutoPaper />} />
 
       </Routes>
         

@@ -19,8 +19,7 @@ export default function TutoTheming() {
   return (
     <div className={classes.root}>
         Bonjour tout le monde
-
-        
+  
           <Typography 
             variant='h1' 
             color="primary"
