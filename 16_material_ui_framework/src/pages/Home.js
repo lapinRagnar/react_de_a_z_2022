@@ -25,6 +25,9 @@ export default function Home() {
             <div className='navigation1'>
                 <Link className={classes.linkStyle} to='/typograpgy'> exemple Typography </Link>
             </div >
+            <div className='navigation1'>
+                <Link className={classes.linkStyle} to='/theming'> exemple theming -  </Link>
+            </div >
             
         </nav>   
 

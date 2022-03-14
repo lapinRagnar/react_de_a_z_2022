@@ -2,7 +2,6 @@ import React from 'react'
 import { AppBar, Toolbar, Typography } from '@mui/material'
 import HomeIcon from '@mui/icons-material/Home';
 import { makeStyles } from '@mui/styles';
-import { red } from '@mui/material/colors';
 
 export default function Header() {
 
