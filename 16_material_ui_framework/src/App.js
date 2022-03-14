@@ -1,12 +1,46 @@
 import logo from './logo.svg';
-import './App.css';
-import { Button } from '@mui/material'
+import { Button, Typography } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
+import './App.css';
+import { makeStyles } from '@mui/styles';
 
-function App() {
+
+const useStyles = makeStyles({
+  root: {
+    // backgroundColor: 'red',
+    color: (props) => props.color,
+  },
+
+  masuperclasses: {
+    color: 'purple',
+    fontStyle: 'oblique',
+    
+  }
+});
+
+
+function App(props) {
+
+  const classes = useStyles(props);
+
   return (
-    <div>
-      <Button disabled>bouton disable</Button>
+    <div className={classes.root}>
+      
+      <Typography
+        variant='h1'
+        align='center'
+        className={classes.masuperclasses}
+      >
+        Bonjour tout le monde
+      </Typography>
+      
+      <Button 
+        size="large" 
+        disabled
+        variant="contained"  
+      >
+          bouton disable
+      </Button>
       
       <Button fullWidth>fullWidth</Button>
       
@@ -30,9 +64,17 @@ function App() {
         Bouton avec couleur secondary
       </Button>
 
+      
+
 
     </div>
   );
 }
+
+
+
+
+
+
 
 export default App;
